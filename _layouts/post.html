@@ -1,0 +1,33 @@
+---
+layout: "wrapper"
+---
+<!-- Begining the if-elsif-else statement -->
+<!--
+{% if page.title == "Post 3"  %}
+  This is the third post
+{% elsif page.title == "Post 2"%}
+  This is the second post
+{% else %}
+  This is another post
+{% endif %}
+-->
+<!-- End of if statement -->
+
+<!-- Begining the for loop -->
+{% for post in site.posts %}
+  <li>
+    <!-- make the current hovered over link become red -->
+    <a style="{% if page.url == post.url %}
+                color:red;
+                {% endif %}"
+        href="{{ post.url }}">{{ post.title }}
+    </a>
+  </li>
+{% endfor %}
+<!-- End of the for loop -->
+
+
+<h2>{{ page.title }}</h2>
+<hr>
+
+{{ content }}

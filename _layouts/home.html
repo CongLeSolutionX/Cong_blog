@@ -1,0 +1,25 @@
+
+<h1> Dispaly all the posts of our site </h1>
+<!-- List all the posts with hyperlinks -->
+<!--Beginning the for loops-->
+{% for post in site.posts %}
+  <li> <a href="{{ post.url }}">{{ post.title }} </a> </li>
+{% endfor %}
+<!-- End of the for loop-->
+
+<h1> List all the objects inside the data file </h1>
+<!-- List all the objects inside data file -->
+{% for person in site.data.people %}
+  {{ person.name }}, {{ person.occupation }} <br>
+{% endfor %}
+<!-- End of the for loop-->
+
+<h1> List all the static files inside the website </h1>
+<!-- List all the static files  -->
+{% for file in site.static_files %}
+  {% if file.image %}
+    <img src="{{file.path}}" alt="{file.name}">
+  {% endif %}
+  <!--Note: we can access path, basename, name, extname of the static files -->
+{% endfor %}
+<!-- End of the for loop-->
